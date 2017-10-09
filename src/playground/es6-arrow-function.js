@@ -12,12 +12,27 @@
 // console.log(square(8));
 // console.log(squareArrow(8));
 
-const getFirstName = (fullName) => {
-    return fullName.split(' ')[0];
+// const getFirstName = (fullName) => {
+//     return fullName.split(' ')[0];
+// };
+
+// console.log(getFirstName('Andrew Miller'));
+
+// const exprGetFirstName = (fullName) => fullName.split(' ')[0];
+
+// console.log(exprGetFirstName('Jen Smith'));
+
+const multiplier ={
+    //numbers - array of numbers
+    numberArray: [1,2,3],
+    //myltiplyBy - single number
+    multiplyBy: 2,
+
+    //multiply - return a new array where the number have been muliplied (use map)
+    multiply(){
+        return this.numberArray.map((result) => this.multiplyBy * result);
+    }
 };
 
-console.log(getFirstName('Andrew Miller'));
+console.log(multiplier.multiply()); //[1,2,3] 2 [2,4,6]
 
-const exprGetFirstName = (fullName) => fullName.split(' ')[0];
-
-console.log(exprGetFirstName('Jen Smith'));
