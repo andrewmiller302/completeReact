@@ -23,7 +23,7 @@ class Student extends Person{
     return !!this.major;
   }
   getDescription(){
-    return 'testing';
+    let;
   }
 }
 
