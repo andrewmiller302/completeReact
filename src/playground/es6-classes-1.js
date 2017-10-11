@@ -4,7 +4,7 @@ class Person {
     this.name = name ;
     this.age = age;
   }
-  getGretting() {
+  getGreeting() {
     //return 'Hi. I am ' + this.name + '!';
     return `Hi. I am ${this.name} !`;
   }
@@ -20,16 +20,42 @@ class Student extends Person{
     this.major = major;
   }
   hasMajor(){
+    //using double !! will return either true or faluse value. 
     return !!this.major;
   }
   getDescription(){
-    let;
+    //using super in the below will be like calling getDescription from parent
+    let description = super.getDescription();
+    //this checks to see if there is a major and then adds the major to the end.
+    if (this.hasMajor()){
+      description += ` Their major is ${this.major}.`;
+    }
+    return description;
   }
 }
 
-const me = new Student('Andrew Miller', 42, 'Computer Sicence');
+//new subclass of person 
 
-console.log(me.getDescription());
+class Travler extends Person{
+  constructor(name, age, homeLocation){
+    super(name, age);
+    this.homeLocation = homeLocation;
+  }
+  hasHome(){
+    return !!this.homeLocation;
+  }
+  getGreeting(){
+    let greeting = super.getGreeting();
+    if(this.hasHome()){
+      greeting += ` I'm visiting from ${this.homeLocation}`
+    }
+    return greeting;
+  }
+}
 
-const other = new Student();
-console.log(other.getDescription());
+const me = new Travler('Andrew Miller', 42, 'Oakland');
+
+console.log(me.getGreeting());
+
+const other = new Travler();
+console.log(other.getGreeting());
